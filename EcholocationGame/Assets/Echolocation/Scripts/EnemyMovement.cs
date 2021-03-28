@@ -84,10 +84,11 @@ public class EnemyMovement : MonoBehaviour
         agent.SetDestination(player.position);
     }
 
-     void OnCollisionEnter(Collision collisionInfo)
+    void OnCollisionEnter(Collision collisionInfo)
     {
-        if (collisioninfo.gameObject.tag == "")
-            agent.SetDestination(collisionInfo.gameObject.tag == "");
+        // if (collisioninfo.gameObject.tag == "tag"){
+        //   agent.SetDestination(collisionInfo.gameObject.tag == "tag");
+        //}
     }
 }
 
