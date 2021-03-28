@@ -76,7 +76,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_AudioSource = GetComponent<AudioSource>();
 			m_MouseLook.Init(transform , m_Camera.transform);
             rb = this.GetComponent<Rigidbody>();
-            SpawnDecal(LeftPrefab);
+            //SpawnDecal(LeftPrefab);
             LastFootprint = this.transform.position;
         }
 
