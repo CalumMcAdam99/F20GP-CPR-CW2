@@ -20,11 +20,11 @@ public class TagSearch : MonoBehaviour
         }
         else if (collision.gameObject.name == "Crawl Particle System(Clone)")
         {
-
+            SetItemTargets();
         }
         else if (collision.gameObject.name == "Sprint Particle System(Clone)")
         {
-
+            SetItemTargets();
         }
     }
 
