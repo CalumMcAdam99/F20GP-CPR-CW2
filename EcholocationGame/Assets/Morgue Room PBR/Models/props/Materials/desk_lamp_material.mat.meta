@@ -1,13 +1,8 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:EcholocationGame/Assets/Echolocation/Prefabs/Particle System.prefab.meta
-guid: 11317582cdf39414e83e4ba5f9a77fef
-PrefabImporter:
-=======
-guid: 702a5c8912372554fb3b0489ef5f2957
+guid: a238a84b476707b4fbcd936f5bcb447c
 NativeFormatImporter:
->>>>>>> EnemyAi
   externalObjects: {}
   mainObjectFileID: 2100000
-  userData:
-  assetBundleName:
-  assetBundleVariant:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
