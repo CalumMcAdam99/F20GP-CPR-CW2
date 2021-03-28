@@ -47,6 +47,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private Vector3 LastFootprint;
         private enumFoot WhichFoot;
         private Rigidbody rb = null;
+        private bool isStart;
 
         private Camera m_Camera;
         private bool m_Jump;
@@ -76,7 +77,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_AudioSource = GetComponent<AudioSource>();
 			m_MouseLook.Init(transform , m_Camera.transform);
             rb = this.GetComponent<Rigidbody>();
-            //SpawnDecal(LeftPrefab);
+            isStart = true;
+            SpawnDecal(LeftPrefab);
             LastFootprint = this.transform.position;
         }
 
@@ -310,24 +312,28 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 decal.transform.Rotate(Vector3.up, this.transform.eulerAngles.y);
                 if(prefab == LeftPrefab)
                 {
-                    if (m_IsCrawling)
+                    if(isStart == false)
                     {
-                        ParticleSystem ps = Instantiate(crawlingparticlePrefab);
-                        ps.transform.position = hit.point;
-                        //UnityEngine.Debug.Log("Crawling");
-                    }
-                    else if (m_IsWalking)
-                    {
-                        ParticleSystem ps = Instantiate(particlePrefab);
-                        ps.transform.position = hit.point;
-                        //UnityEngine.Debug.Log("Walking");
-                    }
-                    else if(!m_IsWalking)
-                    {
-                        ParticleSystem ps = Instantiate(sprintingparticlePrefab);
-                        ps.transform.position = hit.point;
-                        //UnityEngine.Debug.Log("Running");
-                    }
+                        if (m_IsCrawling)
+                        {
+                            ParticleSystem ps = Instantiate(crawlingparticlePrefab);
+                            ps.transform.position = hit.point;
+                            //UnityEngine.Debug.Log("Crawling");
+                        }
+                        else if (m_IsWalking)
+                        {
+                            ParticleSystem ps = Instantiate(particlePrefab);
+                            ps.transform.position = hit.point;
+                            //UnityEngine.Debug.Log("Walking");
+                        }
+                        else if (!m_IsWalking)
+                        {
+                            ParticleSystem ps = Instantiate(sprintingparticlePrefab);
+                            ps.transform.position = hit.point;
+                            //UnityEngine.Debug.Log("Running");
+                        }
+                    }isStart = false;
+                    
 
                 }
             }
