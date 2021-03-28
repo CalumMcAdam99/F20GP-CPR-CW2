@@ -5,8 +5,9 @@ using UnityEngine.AI;
 
 public class EnemyMovement : MonoBehaviour
 {
+    float startingTime = 10f;
+    float currentTime = 10f;
 
-    [SerializeField]
     public NavMeshAgent agent;
 
     public Transform player;
@@ -29,12 +30,21 @@ public class EnemyMovement : MonoBehaviour
     private void Update()
     {
         playerInSight = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
+        if (playerInSight) Chasing();
+        currentTime -= 1 * Time.deltaTime;
+
+        if (currentTime <= 0f)
+        {
+            walkPointSet = false;
+            currentTime = startingTime;
+        }
+
+
+
 
         if (!playerInSight) Patroling();
 
-        if (playerInSight) Chasing();
-
-        //   if (playerInSight) Searching();
+        //   if (SoundHeard) Searching();
 
     }
 
@@ -76,13 +86,7 @@ public class EnemyMovement : MonoBehaviour
         agent.SetDestination(player.position);
     }
 
-    void OnCollisionEnter (Collision collisionInfo)
-    {
-        if (collisionInfo.gameObject.GetComponentInParent<Wall>() != null)
-        {
-            SearchWalkPoint();
-        }
-    }
+
 }
 
     
