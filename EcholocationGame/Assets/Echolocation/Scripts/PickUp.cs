@@ -17,6 +17,8 @@ public class PickUp : MonoBehaviour
     private bool isHolding = false;
     private bool objectThrown = false;
 
+    public ParticleSystem particlePrefab = null;
+
     // Update is called once per frame
     void Update()
     {
@@ -71,6 +73,24 @@ public class PickUp : MonoBehaviour
                 AudioSource.PlayClipAtPoint(collisionAudio, transform.position, 0.5f);
                 objectThrown = false;
             }
+        }
+    }
+
+    private void SpawnParticle()
+    {
+        Vector3 from = this.transform.position;
+        Vector3 to = new Vector3(this.transform.position.x, this.transform.position.y - (this.transform.localScale.y / 2.0f) + 0.1f, this.transform.position.z);
+        Vector3 direction = to - from;
+
+        RaycastHit hit;
+        if (Physics.Raycast(from, direction, out hit) == true)
+        {
+            //GameObject decal = Instantiate(prefab);
+            //decal.transform.position = hit.point;
+            //decal.transform.Rotate(Vector3.up, this.transform.eulerAngles.y);
+
+            ParticleSystem ps = Instantiate(particlePrefab);
+            ps.transform.position = hit.point;
         }
     }
 }
