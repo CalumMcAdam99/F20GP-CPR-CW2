@@ -957,7 +957,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b85f44fc7f3b97345970e8c092f9fb2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collisionAudio: {fileID: 0}
+  collisionAudio: {fileID: 8300000, guid: 2953fad827ab558438301bdfe11ac8e1, type: 3}
   canHold: 1
   item: {fileID: 60649716}
   tempParent: {fileID: 482060430}
@@ -1515,11 +1515,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b85f44fc7f3b97345970e8c092f9fb2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collisionAudio: {fileID: 0}
+  collisionAudio: {fileID: 8300000, guid: 2953fad827ab558438301bdfe11ac8e1, type: 3}
   canHold: 1
   item: {fileID: 142747686}
   tempParent: {fileID: 482060430}
-  particlePrefab: {fileID: 551015911092120682, guid: 1c0b233b867be1e489e1d55c652543a8,
+  particlePrefab: {fileID: 8823876794226271406, guid: b75cb72db7b237344903c102f4a6687a,
     type: 3}
 --- !u!65 &142747688
 BoxCollider:
@@ -2418,11 +2418,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b85f44fc7f3b97345970e8c092f9fb2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collisionAudio: {fileID: 0}
+  collisionAudio: {fileID: 8300000, guid: 2953fad827ab558438301bdfe11ac8e1, type: 3}
   canHold: 1
   item: {fileID: 217181789}
   tempParent: {fileID: 482060430}
-  particlePrefab: {fileID: 551015911092120682, guid: 1c0b233b867be1e489e1d55c652543a8,
+  particlePrefab: {fileID: 8823876794226271406, guid: b75cb72db7b237344903c102f4a6687a,
     type: 3}
 --- !u!65 &217181791
 BoxCollider:
@@ -5409,7 +5409,7 @@ MonoBehaviour:
   canHold: 1
   item: {fileID: 497928372}
   tempParent: {fileID: 482060430}
-  particlePrefab: {fileID: 551015911092120682, guid: 1c0b233b867be1e489e1d55c652543a8,
+  particlePrefab: {fileID: 8823876794226271406, guid: b75cb72db7b237344903c102f4a6687a,
     type: 3}
 --- !u!82 &497928376
 AudioSource:
@@ -14050,11 +14050,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b85f44fc7f3b97345970e8c092f9fb2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collisionAudio: {fileID: 0}
+  collisionAudio: {fileID: 8300000, guid: 2953fad827ab558438301bdfe11ac8e1, type: 3}
   canHold: 1
   item: {fileID: 1544742708}
   tempParent: {fileID: 482060430}
-  particlePrefab: {fileID: 551015911092120682, guid: 1c0b233b867be1e489e1d55c652543a8,
+  particlePrefab: {fileID: 8823876794226271406, guid: b75cb72db7b237344903c102f4a6687a,
     type: 3}
 --- !u!54 &1544742710
 Rigidbody:
@@ -15746,11 +15746,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b85f44fc7f3b97345970e8c092f9fb2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collisionAudio: {fileID: 0}
+  collisionAudio: {fileID: 8300000, guid: 2953fad827ab558438301bdfe11ac8e1, type: 3}
   canHold: 1
   item: {fileID: 1763311254}
   tempParent: {fileID: 482060430}
-  particlePrefab: {fileID: 551015911092120682, guid: 1c0b233b867be1e489e1d55c652543a8,
+  particlePrefab: {fileID: 8823876794226271406, guid: b75cb72db7b237344903c102f4a6687a,
     type: 3}
 --- !u!65 &1763311256
 BoxCollider:
@@ -17450,11 +17450,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b85f44fc7f3b97345970e8c092f9fb2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collisionAudio: {fileID: 0}
+  collisionAudio: {fileID: 8300000, guid: 2953fad827ab558438301bdfe11ac8e1, type: 3}
   canHold: 1
   item: {fileID: 2012983241}
   tempParent: {fileID: 482060430}
-  particlePrefab: {fileID: 551015911092120682, guid: 1c0b233b867be1e489e1d55c652543a8,
+  particlePrefab: {fileID: 8823876794226271406, guid: b75cb72db7b237344903c102f4a6687a,
     type: 3}
 --- !u!65 &2012983243
 BoxCollider:
