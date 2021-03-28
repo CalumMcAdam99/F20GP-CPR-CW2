@@ -8,6 +8,7 @@ TagManager:
   - Shockwave
   - Floor
   - Foot
+  - Item
   layers:
   - Default
   - TransparentFX
