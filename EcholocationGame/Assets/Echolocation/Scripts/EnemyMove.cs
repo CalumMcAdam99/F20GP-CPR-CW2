@@ -78,12 +78,6 @@ public class EnemyMove : MonoBehaviour
         }
     }
 
-    // need to do
-    private void Searching()
-    {
-
-    }
-
     private void Chasing()
     {
         agent.SetDestination(player.position);
@@ -91,23 +85,25 @@ public class EnemyMove : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.name == "Particle System(Clone)")
-        {
-            SetItemTargets();
-        }
-        else if (collision.gameObject.name == "Crawl Particle System(Clone)")
-        {
-            SetItemTargets();
-        }
-        else if (collision.gameObject.name == "Sprint Particle System(Clone)")
-        {
-            SetItemTargets();
-        }
+        
     }
 
     private void OnParticleCollision(GameObject other)
     {
         if (other.gameObject.name == "Item Particle System(Clone)")
+        {
+            SetItemTargets();
+        }
+
+        if (other.gameObject.name == "Particle System(Clone)")
+        {
+            SetItemTargets();
+        }
+        else if (other.gameObject.name == "Crawl Particle System(Clone)")
+        {
+            SetItemTargets();
+        }
+        else if (other.gameObject.name == "Sprint Particle System(Clone)")
         {
             SetItemTargets();
         }
