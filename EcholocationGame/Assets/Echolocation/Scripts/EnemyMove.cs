@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using System;
-using System.Linq;
 
 public class EnemyMove : MonoBehaviour
 {
@@ -149,6 +147,7 @@ public class EnemyMove : MonoBehaviour
                 distance = curDistance;
             }
         }
+        agent.SetDestination(closest.transform.position);
     }
 }
 
