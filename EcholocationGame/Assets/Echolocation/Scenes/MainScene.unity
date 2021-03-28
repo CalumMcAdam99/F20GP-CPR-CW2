@@ -5590,6 +5590,7 @@ MonoBehaviour:
   min: 1
   max: 1000
   distance: Infinity
+  part: {fileID: 2088634812898865780, guid: 11317582cdf39414e83e4ba5f9a77fef, type: 3}
 --- !u!65 &501305575
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6914,6 +6915,7 @@ MonoBehaviour:
   min: 1
   max: 1000
   distance: Infinity
+  part: {fileID: 2088634812898865780, guid: 11317582cdf39414e83e4ba5f9a77fef, type: 3}
 --- !u!65 &662783705
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9881,6 +9883,7 @@ MonoBehaviour:
   min: 1
   max: 1000
   distance: Infinity
+  part: {fileID: 2088634812898865780, guid: 11317582cdf39414e83e4ba5f9a77fef, type: 3}
 --- !u!65 &1019601594
 BoxCollider:
   m_ObjectHideFlags: 0
