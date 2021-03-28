@@ -23,7 +23,7 @@ public class EnemyMove : MonoBehaviour
     public bool playerInSight;
 
     private GameObject closest;
-    private GameObject prevClosest = null;
+    private Vector3 prevClosest;
     public float min = 1f;
     public float max = 1000f;
     public float distance = Mathf.Infinity;
@@ -145,10 +145,10 @@ public class EnemyMove : MonoBehaviour
         }
         if(closest !=null)
         {
-            if(closest != prevClosest)
+            if(closest.transform.position != prevClosest)
             { 
             agent.SetDestination(closest.transform.position);
-            prevClosest = closest;
+            prevClosest = closest.transform.position;
             closest = null;
             }
             
