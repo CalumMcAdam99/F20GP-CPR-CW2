@@ -1,8 +1,15 @@
 fileFormatVersion: 2
-guid: f07283dbd6226884b90f812ea3bdf789
+<<<<<<< HEAD:EcholocationGame/Assets/Crate/Materials/crate_diffuse.mat.meta
+guid: 524b19cf72af34a4d910db01feceaa68
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+=======
+guid: e2eb147549733314880e46655a03a5bb
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 2100000
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
+>>>>>>> EnemyAi
+  userData:
+  assetBundleName:
+  assetBundleVariant:
