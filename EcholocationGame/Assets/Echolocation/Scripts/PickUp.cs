@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PickUp : MonoBehaviour
 {
+    public AudioClip collisionAudio;
+
     float throwForce = 500;
     Vector3 objectPos;
     float distance;
@@ -11,7 +13,9 @@ public class PickUp : MonoBehaviour
     public bool canHold = true;
     public GameObject item;
     public GameObject tempParent;
-    public bool isHolding = false;
+
+    private bool isHolding = false;
+    private bool objectThrown = false;
 
     // Update is called once per frame
     void Update()
@@ -33,6 +37,7 @@ public class PickUp : MonoBehaviour
             {
                 item.GetComponent<Rigidbody>().AddForce(tempParent.transform.forward * throwForce);
                 isHolding = false;
+                objectThrown = true;
             }
         }
         else
@@ -51,6 +56,21 @@ public class PickUp : MonoBehaviour
             isHolding = true;
             item.GetComponent<Rigidbody>().useGravity = false;
             item.GetComponent<Rigidbody>().detectCollisions = true;
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (objectThrown)
+        {
+            if (collision.gameObject.GetComponent<Player>())
+            {
+                //Do nothing
+            } else
+            {
+                AudioSource.PlayClipAtPoint(collisionAudio, transform.position, 0.5f);
+                objectThrown = false;
+            }
         }
     }
 }

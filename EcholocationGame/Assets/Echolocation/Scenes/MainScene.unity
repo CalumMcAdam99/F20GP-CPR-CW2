@@ -38,8 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0039958204, g: 0.00021793372, b: 0.000000051524502,
-    a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -765,6 +764,7 @@ GameObject:
   m_Component:
   - component: {fileID: 43195308}
   - component: {fileID: 43195309}
+  - component: {fileID: 43195310}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -800,6 +800,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &43195310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 43195307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9a2cff3abf204e44bbb3a06019a391b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &49897880
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -958,10 +970,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b85f44fc7f3b97345970e8c092f9fb2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collisionAudio: {fileID: 0}
   canHold: 1
   item: {fileID: 60649716}
   tempParent: {fileID: 482060430}
-  isHolding: 0
 --- !u!54 &60649718
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1515,10 +1527,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b85f44fc7f3b97345970e8c092f9fb2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collisionAudio: {fileID: 0}
   canHold: 1
   item: {fileID: 142747686}
   tempParent: {fileID: 482060430}
-  isHolding: 0
 --- !u!65 &142747688
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2221,10 +2233,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b85f44fc7f3b97345970e8c092f9fb2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collisionAudio: {fileID: 0}
   canHold: 1
   item: {fileID: 217181789}
   tempParent: {fileID: 482060430}
-  isHolding: 0
 --- !u!65 &217181791
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5206,10 +5218,106 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b85f44fc7f3b97345970e8c092f9fb2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collisionAudio: {fileID: 8300000, guid: 2953fad827ab558438301bdfe11ac8e1, type: 3}
   canHold: 1
   item: {fileID: 497928372}
   tempParent: {fileID: 482060430}
-  isHolding: 0
+--- !u!82 &497928376
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 497928372}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 2953fad827ab558438301bdfe11ac8e1, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.5
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!4 &515472322 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0,
@@ -7082,7 +7190,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &705507994
 Light:
   m_ObjectHideFlags: 0
@@ -13330,10 +13438,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b85f44fc7f3b97345970e8c092f9fb2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collisionAudio: {fileID: 0}
   canHold: 1
   item: {fileID: 1544742708}
   tempParent: {fileID: 482060430}
-  isHolding: 0
 --- !u!54 &1544742710
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -15024,10 +15132,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b85f44fc7f3b97345970e8c092f9fb2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collisionAudio: {fileID: 0}
   canHold: 1
   item: {fileID: 1763311254}
   tempParent: {fileID: 482060430}
-  isHolding: 0
 --- !u!65 &1763311256
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16684,10 +16792,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b85f44fc7f3b97345970e8c092f9fb2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collisionAudio: {fileID: 0}
   canHold: 1
   item: {fileID: 2012983241}
   tempParent: {fileID: 482060430}
-  isHolding: 0
 --- !u!65 &2012983243
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18191,7 +18299,7 @@ PrefabInstance:
     - target: {fileID: 7397329092520142832, guid: b9da958037087244b9ee6fc66115fc1a,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7397329092520142833, guid: b9da958037087244b9ee6fc66115fc1a,
         type: 3}
