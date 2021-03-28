@@ -39,11 +39,13 @@ public class TagSearch : MonoBehaviour
     public void SetItemTargets()
     {
         GameObject[] gosItems = GameObject.FindGameObjectsWithTag("Item");
+        FindClosestTarget(gosItems);
     }
 
     public void SetFootTargets()
     {
         GameObject[] gosFoot = GameObject.FindGameObjectsWithTag("Foot");
+        FindClosestTarget(gosFoot);
     }
 
     public void FindClosestTarget(GameObject[] gos)
