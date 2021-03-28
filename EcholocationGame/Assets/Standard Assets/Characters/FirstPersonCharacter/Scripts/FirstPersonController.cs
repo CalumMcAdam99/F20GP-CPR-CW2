@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 using UnityStandardAssets.Utility;
@@ -29,6 +30,20 @@ namespace UnityStandardAssets.Characters.FirstPerson
         [SerializeField] private AudioClip m_JumpSound;           // the sound played when character leaves the ground.
         [SerializeField] private AudioClip m_LandSound;           // the sound played when character touches back on ground.
 
+        public enum enumFoot
+        {
+            Left, 
+            Right,
+        }
+
+        public GameObject LeftPrefab = null;
+        public GameObject RightPrefab = null;
+        public ParticleSystem particlePrefab = null;
+        public float FootprintSpacer = 1.0f;
+        private Vector3 LastFootprint;
+        private enumFoot WhichFoot;
+        private Rigidbody rb = null;
+
         private Camera m_Camera;
         private bool m_Jump;
         private float m_YRotation;
@@ -56,12 +71,35 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_Jumping = false;
             m_AudioSource = GetComponent<AudioSource>();
 			m_MouseLook.Init(transform , m_Camera.transform);
+            rb = this.GetComponent<Rigidbody>();
+            SpawnDecal(LeftPrefab);
+            LastFootprint = this.transform.position;
         }
 
 
         // Update is called once per frame
         private void Update()
         {
+            float moveZ = Input.GetAxis("Vertical");
+            if (moveZ !=0 && m_CharacterController.isGrounded)
+            {
+                float DistanceSinceLastFootprint = Vector3.Distance(LastFootprint, this.transform.position);
+                if(DistanceSinceLastFootprint >= FootprintSpacer)
+                {
+                    if(WhichFoot == enumFoot.Left)
+                    {
+                        SpawnDecal(LeftPrefab);
+                        WhichFoot = enumFoot.Right;
+                    }
+                    else if(WhichFoot == enumFoot.Right)
+                    {
+                        SpawnDecal(RightPrefab);
+                        WhichFoot = enumFoot.Left;
+                    }
+                    LastFootprint = this.transform.position;
+                }
+            }
+
             RotateView();
             // the jump state needs to read here to make sure it is not missed
             if (!m_Jump)
@@ -238,6 +276,33 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private void RotateView()
         {
             m_MouseLook.LookRotation (transform, m_Camera.transform);
+        }
+
+        private void OnCollisionEnter(Collision collision)
+        {
+            SpawnDecal(LeftPrefab);
+            SpawnDecal(RightPrefab);
+        }
+
+        private void SpawnDecal(GameObject prefab)
+        {
+            Vector3 from = this.transform.position;
+            Vector3 to = new Vector3(this.transform.position.x, this.transform.position.y - (this.transform.localScale.y / 2.0f) + 0.1f, this.transform.position.z);
+            Vector3 direction = to - from;
+
+            RaycastHit hit;
+            if(Physics.Raycast(from, direction, out hit)==true)
+            {
+                GameObject decal = Instantiate(prefab);
+                decal.transform.position = hit.point;
+                decal.transform.Rotate(Vector3.up, this.transform.eulerAngles.y);
+                if(prefab == LeftPrefab)
+                {
+                    ParticleSystem ps = Instantiate(particlePrefab);
+                    ps.transform.position = hit.point;
+
+                }
+            }
         }
 
 
