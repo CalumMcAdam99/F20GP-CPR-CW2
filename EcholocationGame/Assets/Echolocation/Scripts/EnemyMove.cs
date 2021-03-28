@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -45,7 +46,7 @@ public class EnemyMove : MonoBehaviour
         }
 
 
-        if (!playerInSight) Patroling();
+       // if (!playerInSight) Patroling();
 
         //   if (SoundHeard) Searching();
 
@@ -83,11 +84,6 @@ public class EnemyMove : MonoBehaviour
         agent.SetDestination(player.position);
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        
-    }
-
     private void OnParticleCollision(GameObject other)
     {
         if (other.gameObject.name == "Item Particle System(Clone)")
@@ -97,15 +93,15 @@ public class EnemyMove : MonoBehaviour
 
         if (other.gameObject.name == "Particle System(Clone)")
         {
-            SetItemTargets();
+            SetFootTargets();
         }
         else if (other.gameObject.name == "Crawl Particle System(Clone)")
         {
-            SetItemTargets();
+            SetFootTargets();
         }
         else if (other.gameObject.name == "Sprint Particle System(Clone)")
         {
-            SetItemTargets();
+            SetFootTargets();
         }
     }
 
@@ -143,7 +139,10 @@ public class EnemyMove : MonoBehaviour
                 distance = curDistance;
             }
         }
-        agent.SetDestination(closest.transform.position);
+        if(closest !=null)
+        {
+            agent.SetDestination(closest.transform.position);
+        }
     }
 }
 

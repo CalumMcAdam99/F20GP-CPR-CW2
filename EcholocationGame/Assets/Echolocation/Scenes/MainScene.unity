@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0039958204, g: 0.00021793372, b: 0.000000051524502,
+  m_IndirectSpecularColor: {r: 0.003995816, g: 0.00021793343, b: 0.000000051524502,
     a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
@@ -5585,7 +5585,7 @@ MonoBehaviour:
     m_Bits: 512
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 6
-  sightRange: 10
+  sightRange: 0
   playerInSight: 0
   min: 1
   max: 1000
@@ -6909,7 +6909,7 @@ MonoBehaviour:
     m_Bits: 512
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 6
-  sightRange: 10
+  sightRange: 0
   playerInSight: 0
   min: 1
   max: 1000
@@ -9876,7 +9876,7 @@ MonoBehaviour:
     m_Bits: 512
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 6
-  sightRange: 10
+  sightRange: 0
   playerInSight: 0
   min: 1
   max: 1000
