@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class EnemyMove : MonoBehaviour
 {
     float startingTime = 10f;
-    float currentTime = 10f;
+    float currentTime = 7f;
 
     public NavMeshAgent agent;
 
