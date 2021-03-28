@@ -13,8 +13,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
     public class FirstPersonController : MonoBehaviour
     {
         [SerializeField] private bool m_IsWalking;
+        [SerializeField] private bool m_IsCrawling;
         [SerializeField] private float m_WalkSpeed;
         [SerializeField] private float m_RunSpeed;
+        [SerializeField] private float m_CrawlSpeed;
         [SerializeField] [Range(0f, 1f)] private float m_RunstepLenghten;
         [SerializeField] private float m_JumpSpeed;
         [SerializeField] private float m_StickToGroundForce;
@@ -39,6 +41,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
         public GameObject LeftPrefab = null;
         public GameObject RightPrefab = null;
         public ParticleSystem particlePrefab = null;
+        public ParticleSystem sprintingparticlePrefab = null;
+        public ParticleSystem crawlingparticlePrefab = null;
         public float FootprintSpacer = 1.0f;
         private Vector3 LastFootprint;
         private enumFoot WhichFoot;
@@ -251,7 +255,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
 #if !MOBILE_INPUT
             // On standalone builds, walk/run speed is modified by a key press.
             // keep track of whether or not the character is walking or running
-            m_IsWalking = !Input.GetKey(KeyCode.LeftShift);
+            m_IsCrawling = Input.GetKey(KeyCode.C);
+            m_IsWalking = (!Input.GetKey(KeyCode.LeftShift) && !m_IsCrawling);
 #endif
             // set the desired speed to be walking or running
             speed = m_IsWalking ? m_WalkSpeed : m_RunSpeed;
@@ -298,8 +303,24 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 decal.transform.Rotate(Vector3.up, this.transform.eulerAngles.y);
                 if(prefab == LeftPrefab)
                 {
-                    ParticleSystem ps = Instantiate(particlePrefab);
-                    ps.transform.position = hit.point;
+                    if (m_IsCrawling)
+                    {
+                        ParticleSystem ps = Instantiate(crawlingparticlePrefab);
+                        ps.transform.position = hit.point;
+                        //UnityEngine.Debug.Log("Crawling");
+                    }
+                    else if (m_IsWalking)
+                    {
+                        ParticleSystem ps = Instantiate(particlePrefab);
+                        ps.transform.position = hit.point;
+                        //UnityEngine.Debug.Log("Walking");
+                    }
+                    else if(!m_IsWalking)
+                    {
+                        ParticleSystem ps = Instantiate(sprintingparticlePrefab);
+                        ps.transform.position = hit.point;
+                        //UnityEngine.Debug.Log("Running");
+                    }
 
                 }
             }

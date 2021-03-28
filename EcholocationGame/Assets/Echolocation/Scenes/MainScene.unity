@@ -764,11 +764,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 43195308}
-  - component: {fileID: 43195309}
   - component: {fileID: 43195310}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -788,19 +787,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &43195309
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 43195307}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &43195310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2490,7 +2476,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh17094
+  m_Name: pb_Mesh-3438
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4889,7 +4875,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 482060431}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Guide
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13863,7 +13849,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1603107382}
   - component: {fileID: 1603107383}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16443,6 +16429,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: FPSController
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -16498,9 +16492,28 @@ PrefabInstance:
       objectReference: {fileID: 8723261116457087857, guid: 005e40371d6062a44aba8a4c896939cc,
         type: 3}
     - target: {fileID: 11400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
+      propertyPath: m_CrawlSpeed
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: particlePrefab
       value: 
       objectReference: {fileID: 2088634812898865780, guid: 11317582cdf39414e83e4ba5f9a77fef,
+        type: 3}
+    - target: {fileID: 11400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
+      propertyPath: crawlingparticlePrefab
+      value: 
+      objectReference: {fileID: 3022779046430093490, guid: 4862a525ae76b7d4d801a64e6e077b9e,
+        type: 3}
+    - target: {fileID: 11400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
+      propertyPath: crouchingparticlePrefab
+      value: 
+      objectReference: {fileID: 3022779046430093490, guid: 4862a525ae76b7d4d801a64e6e077b9e,
+        type: 3}
+    - target: {fileID: 11400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
+      propertyPath: sprintingparticlePrefab
+      value: 
+      objectReference: {fileID: 551015911092120682, guid: 1c0b233b867be1e489e1d55c652543a8,
         type: 3}
     - target: {fileID: 14300000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: m_Height
