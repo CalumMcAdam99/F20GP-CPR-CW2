@@ -961,6 +961,7 @@ MonoBehaviour:
   canHold: 1
   item: {fileID: 60649716}
   tempParent: {fileID: 482060430}
+  particlePrefab: {fileID: 0}
 --- !u!54 &60649718
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1518,6 +1519,8 @@ MonoBehaviour:
   canHold: 1
   item: {fileID: 142747686}
   tempParent: {fileID: 482060430}
+  particlePrefab: {fileID: 551015911092120682, guid: 1c0b233b867be1e489e1d55c652543a8,
+    type: 3}
 --- !u!65 &142747688
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2224,6 +2227,8 @@ MonoBehaviour:
   canHold: 1
   item: {fileID: 217181789}
   tempParent: {fileID: 482060430}
+  particlePrefab: {fileID: 551015911092120682, guid: 1c0b233b867be1e489e1d55c652543a8,
+    type: 3}
 --- !u!65 &217181791
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5209,6 +5214,8 @@ MonoBehaviour:
   canHold: 1
   item: {fileID: 497928372}
   tempParent: {fileID: 482060430}
+  particlePrefab: {fileID: 551015911092120682, guid: 1c0b233b867be1e489e1d55c652543a8,
+    type: 3}
 --- !u!82 &497928376
 AudioSource:
   m_ObjectHideFlags: 0
@@ -13429,6 +13436,8 @@ MonoBehaviour:
   canHold: 1
   item: {fileID: 1544742708}
   tempParent: {fileID: 482060430}
+  particlePrefab: {fileID: 551015911092120682, guid: 1c0b233b867be1e489e1d55c652543a8,
+    type: 3}
 --- !u!54 &1544742710
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -15123,6 +15132,8 @@ MonoBehaviour:
   canHold: 1
   item: {fileID: 1763311254}
   tempParent: {fileID: 482060430}
+  particlePrefab: {fileID: 551015911092120682, guid: 1c0b233b867be1e489e1d55c652543a8,
+    type: 3}
 --- !u!65 &1763311256
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16825,6 +16836,8 @@ MonoBehaviour:
   canHold: 1
   item: {fileID: 2012983241}
   tempParent: {fileID: 482060430}
+  particlePrefab: {fileID: 551015911092120682, guid: 1c0b233b867be1e489e1d55c652543a8,
+    type: 3}
 --- !u!65 &2012983243
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: -976388884294786579}
   m_Layer: 0
   m_Name: FootLeft
-  m_TagString: Untagged
+  m_TagString: Foot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -138,3 +138,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecf24ffd67cb7e54a82181dedb24640a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Lifetime: 2
