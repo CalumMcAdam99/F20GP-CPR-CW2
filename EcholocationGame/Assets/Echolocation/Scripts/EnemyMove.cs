@@ -23,7 +23,7 @@ public class EnemyMove : MonoBehaviour
     public bool playerInSight;
 
     private GameObject closest;
-    private GameObject prevClosest;
+    private GameObject prevClosest = null;
     public float min = 1f;
     public float max = 1000f;
     public float distance = Mathf.Infinity;
@@ -94,8 +94,7 @@ public class EnemyMove : MonoBehaviour
 
             SetItemTargets();
         }
-
-        if (other.gameObject.name == "Particle System(Clone)")
+        else if (other.gameObject.name == "Particle System(Clone)")
         {
             SetFootTargets();
         }
@@ -113,7 +112,6 @@ public class EnemyMove : MonoBehaviour
     {
         gosItems = GameObject.FindGameObjectsWithTag("Item");
         FindClosestTarget(gosItems);
-        gosItems = null;
 
     }
 
@@ -121,13 +119,11 @@ public class EnemyMove : MonoBehaviour
     {
         gosFoot = GameObject.FindGameObjectsWithTag("Foot");
         FindClosestTarget(gosFoot);
-        gosFoot = null;
     }
 
     public void FindClosestTarget(GameObject[] gos)
     {
         closest = null;
-        prevClosest = null;
         Vector3 position = transform.position;
 
         min = min * min;
@@ -150,9 +146,12 @@ public class EnemyMove : MonoBehaviour
         if(closest !=null)
         {
             if(closest != prevClosest)
+            { 
             agent.SetDestination(closest.transform.position);
             prevClosest = closest;
             closest = null;
+            }
+            
         }
     }
 }
