@@ -71,6 +71,7 @@ public class PickUp : MonoBehaviour
             } else
             {
                 AudioSource.PlayClipAtPoint(collisionAudio, transform.position, 0.5f);
+                SpawnParticle();
                 objectThrown = false;
             }
         }
