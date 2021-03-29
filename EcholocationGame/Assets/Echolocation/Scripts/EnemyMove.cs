@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.AI;
+using System;
 
 public class EnemyMove : MonoBehaviour
 {
@@ -16,19 +17,35 @@ public class EnemyMove : MonoBehaviour
     public LayerMask whatIsGround, whatIsPlayer;
 
     public Vector3 walkPoint;
+    public Vector3 coord;
     bool walkPointSet;
     public float walkPointRange;
 
     public float sightRange;
     public bool playerInSight;
 
-    private GameObject closest;
-    private Vector3 prevClosest;
+    public bool canSearch;
+    public bool foundClosest;
+    public int isSearched;
+
     public float min = 1f;
     public float max = 1000f;
-    public float distance = Mathf.Infinity;
-    GameObject[] gosItems = null;
-    GameObject[] gosFoot = null;
+    public float distance;
+    GameObject[] gosItems;
+    GameObject[] gosFoot;
+    List<Vector3> goList;
+    private int itemtagCount;
+    private int foottagCount;
+
+    private float delayInSeconds = 0.25f;
+
+    void Start()
+    {
+        isSearched = 0;
+        canSearch = true;
+        foundClosest = false;
+
+    }
 
     private void Awake()
     {
@@ -48,8 +65,24 @@ public class EnemyMove : MonoBehaviour
             currentTime = startingTime;
         }
 
+        if (isSearched == 1)
+        {
+            isSearched = 0;
+        }
 
-       //if (!playerInSight) Patroling();
+        itemtagCount = GameObject.FindGameObjectsWithTag("Item").Length;
+        foottagCount = GameObject.FindGameObjectsWithTag("Foot").Length;
+
+        if(foundClosest == true)
+        {
+
+            UnityEngine.Debug.Log(coord);
+            agent.SetDestination(coord);
+            foundClosest = false;
+        }
+
+
+        if (!playerInSight) Patroling();
 
         //   if (SoundHeard) Searching();
 
@@ -84,7 +117,6 @@ public class EnemyMove : MonoBehaviour
 
     private void Chasing()
     {
-        agent.SetDestination(player.position);
     }
 
     private void OnParticleCollision(GameObject other)
@@ -110,20 +142,46 @@ public class EnemyMove : MonoBehaviour
 
     public void SetItemTargets()
     {
-        gosItems = GameObject.FindGameObjectsWithTag("Item");
-        FindClosestTarget(gosItems);
+        if(itemtagCount >0)
+        {
+            if (isSearched == 0 && canSearch == true)
+            {
+                gosItems = GameObject.FindGameObjectsWithTag("Item");
+                isSearched = 1;
+                canSearch = false;
+                FindClosestTarget(gosItems);
+                StartCoroutine(SearchDelay());
+            }
+        }
 
     }
 
     public void SetFootTargets()
     {
-        gosFoot = GameObject.FindGameObjectsWithTag("Foot");
-        FindClosestTarget(gosFoot);
+
+        if (foottagCount >0)
+        {
+            if (isSearched == 0 && canSearch == true)
+            {
+                gosFoot = GameObject.FindGameObjectsWithTag("Foot");
+                isSearched = 1;
+                canSearch = false;
+                FindClosestTarget(gosFoot);
+                StartCoroutine(SearchDelay());
+            }
+        }
+    }
+
+    IEnumerator SearchDelay()
+    {
+        yield return new WaitForSeconds(delayInSeconds);
+        canSearch = true;
     }
 
     public void FindClosestTarget(GameObject[] gos)
     {
-        closest = null;
+        distance = Mathf.Infinity;
+        goList = new List<Vector3>();
         Vector3 position = transform.position;
 
         min = min * min;
@@ -131,28 +189,27 @@ public class EnemyMove : MonoBehaviour
         //goes through each enemy object in the array
         foreach (GameObject go in gos)
         {
-            //calculates the distance between the target and the enemy
-            Vector3 diff = go.transform.position - position;
-            //sets the current closest distance to the absoloute distance
-            float curDistance = diff.sqrMagnitude;
-            //checks whether or not that target is closer to any previous target
-            if (curDistance < distance && curDistance >= min && curDistance <= max)
+            if (go != null)
             {
-                //which if one is found to be closer it updates the closest varaible to the target object that is currently being checked
-                closest = go;
-                distance = curDistance;
+                goList.Add(go.transform.position);
+            }
+            foreach(Vector3 go1 in goList)
+            {
+                //calculates the distance between the target and the enemy
+                Vector3 diff = go1 + position;
+                //sets the current closest distance to the absoloute distance
+                float curDistance = diff.sqrMagnitude;
+                //checks whether or not that target is closer to any previous target
+                if (curDistance < distance && curDistance >= min && curDistance <= max)
+                {
+                    //which if one is found to be closer it updates the closest varaible to the target object that is currently being checked
+                    coord = go1;
+                    distance = curDistance;
+
+                }
             }
         }
-        if(closest !=null)
-        {
-            if(closest.transform.position != prevClosest)
-            { 
-            agent.SetDestination(closest.transform.position);
-            prevClosest = closest.transform.position;
-            closest = null;
-            }
-            
-        }
+        foundClosest = true;
     }
 }
 
