@@ -22,8 +22,6 @@ public class EnemyMove : MonoBehaviour
     public float sightRange;
     public bool playerInSight;
 
-    private Animator animator;
-
     private GameObject closest;
     private Vector3 prevClosest;
     public float min = 1f;
@@ -36,7 +34,6 @@ public class EnemyMove : MonoBehaviour
     {
         //player = GameObject.Find("PlayerObj").transform;
         agent = this.GetComponent<NavMeshAgent>();
-        animator = GetComponentInChildren<Animator>();
     }
 
     private void Update()
@@ -60,8 +57,6 @@ public class EnemyMove : MonoBehaviour
 
     private void Patroling()
     {
-        animator.SetBool("Chasing", false);
-
         if (!walkPointSet) SearchWalkPoint();
 
         if (walkPointSet) agent.SetDestination(walkPoint);
@@ -89,7 +84,6 @@ public class EnemyMove : MonoBehaviour
 
     private void Chasing()
     {
-        animator.SetBool("Chasing", true);
         agent.SetDestination(player.position);
     }
 
