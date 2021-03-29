@@ -2690,7 +2690,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh68526
+  m_Name: pb_Mesh200678
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -9722,6 +9722,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3147931099186607013, guid: 7c8c43f023d943c4c8f31f69712e1fba,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 515472322}
+    - target: {fileID: 3147931099186607013, guid: 7c8c43f023d943c4c8f31f69712e1fba,
+        type: 3}
+      propertyPath: sightRange
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3147931099186607019, guid: 7c8c43f023d943c4c8f31f69712e1fba,
         type: 3}
       propertyPath: m_Name
@@ -15149,6 +15159,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3147931099186607013, guid: 7c8c43f023d943c4c8f31f69712e1fba,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 515472322}
+    - target: {fileID: 3147931099186607013, guid: 7c8c43f023d943c4c8f31f69712e1fba,
+        type: 3}
+      propertyPath: sightRange
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3147931099186607019, guid: 7c8c43f023d943c4c8f31f69712e1fba,
         type: 3}
       propertyPath: m_Name
@@ -18664,6 +18684,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 222123081}
+    - target: {fileID: 3147931099186607013, guid: 7c8c43f023d943c4c8f31f69712e1fba,
+        type: 3}
+      propertyPath: sightRange
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3147931099186607019, guid: 7c8c43f023d943c4c8f31f69712e1fba,
         type: 3}
       propertyPath: m_Name
