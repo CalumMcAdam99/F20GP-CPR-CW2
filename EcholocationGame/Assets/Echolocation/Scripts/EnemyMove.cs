@@ -149,7 +149,7 @@ public class EnemyMove : MonoBehaviour
                 gosItems = GameObject.FindGameObjectsWithTag("Item");
                 isSearched = 1;
                 canSearch = false;
-                FindClosestTarget(gosItems);
+                FindClosestItemTarget(gosItems);
                 StartCoroutine(SearchDelay());
             }
         }
@@ -166,7 +166,7 @@ public class EnemyMove : MonoBehaviour
                 gosFoot = GameObject.FindGameObjectsWithTag("Foot");
                 isSearched = 1;
                 canSearch = false;
-                FindClosestTarget(gosFoot);
+                FindClosestFootTarget(gosFoot);
                 StartCoroutine(SearchDelay());
             }
         }
@@ -178,7 +178,7 @@ public class EnemyMove : MonoBehaviour
         canSearch = true;
     }
 
-    public void FindClosestTarget(GameObject[] gos)
+    public void FindClosestFootTarget(GameObject[] gos)
     {
         distance = Mathf.Infinity;
         goList = new List<Vector3>();
@@ -197,6 +197,40 @@ public class EnemyMove : MonoBehaviour
             {
                 //calculates the distance between the target and the enemy
                 Vector3 diff = go1 + position;
+                //sets the current closest distance to the absoloute distance
+                float curDistance = diff.sqrMagnitude;
+                //checks whether or not that target is closer to any previous target
+                if (curDistance < distance && curDistance >= min && curDistance <= max)
+                {
+                    //which if one is found to be closer it updates the closest varaible to the target object that is currently being checked
+                    coord = go1;
+                    distance = curDistance;
+
+                }
+            }
+        }
+        foundClosest = true;
+    }
+
+    public void FindClosestItemTarget(GameObject[] gos)
+    {
+        distance = Mathf.Infinity;
+        goList = new List<Vector3>();
+        Vector3 position = transform.position;
+
+        min = min * min;
+        max = max * max;
+        //goes through each enemy object in the array
+        foreach (GameObject go in gos)
+        {
+            if (go != null)
+            {
+                goList.Add(go.transform.position);
+            }
+            foreach (Vector3 go1 in goList)
+            {
+                //calculates the distance between the target and the enemy
+                Vector3 diff = go1 - position;
                 //sets the current closest distance to the absoloute distance
                 float curDistance = diff.sqrMagnitude;
                 //checks whether or not that target is closer to any previous target
