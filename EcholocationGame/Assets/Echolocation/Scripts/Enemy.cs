@@ -1,9 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class Enemy : MonoBehaviour
 {
+    public GameObject canvas;
+    public GameObject loserScreen;
+
+    public FirstPersonController fp;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,9 +27,13 @@ public class Enemy : MonoBehaviour
         Player player = collision.GetComponent<Player>();
         if (player != null)
         {
-            Time.timeScale = 0f;
+            fp.GetComponent<FirstPersonController>().enabled = false;
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+
             Debug.Log("Player was caught by an enemy!");
-            // Display Game over UI
+            canvas.SetActive(true);
+            loserScreen.SetActive(true);
         }
     }
 }
