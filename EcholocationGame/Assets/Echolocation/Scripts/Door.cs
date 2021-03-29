@@ -19,5 +19,8 @@ public class Door : MonoBehaviour
     public void OpenDoor()
     {
         gameObject.SetActive(false);
+        Time.timeScale = 0f;
+        Debug.Log("Player escaped!");
+        // Display Game over UI
     }
 }
